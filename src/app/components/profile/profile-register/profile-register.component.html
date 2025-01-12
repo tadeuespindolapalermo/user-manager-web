@@ -1,0 +1,22 @@
+<div class="container mt-5">
+  <h2 class="mb-4">Profile Registration</h2>
+  <form (ngSubmit)="onSubmit()" #profileForm="ngForm">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        name="name"
+        [(ngModel)]="profile.name"
+        required
+      />
+    </div><br />
+
+    <button type="submit" class="btn btn-primary mb-3" [disabled]="!profileForm.form.valid">
+      Register
+    </button>&nbsp;
+
+    <button type="button" class="btn btn-secondary mb-3" (click)="goBack()">Back</button>
+  </form>
+</div>

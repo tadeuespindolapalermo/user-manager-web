@@ -1,0 +1,22 @@
+<div class="modal fade" id="userAssignProfileModal" tabindex="-1" aria-labelledby="userAssignProfileModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="userAssignProfileModalLabel">{{ 'Assign Profile' }}</h5>
+      </div>
+      <div class="modal-body">
+        <label for="profileSelect" class="form-label">{{ 'Select Profile' }}</label>
+        <select id="profileSelect" class="form-select" [(ngModel)]="selectedProfile">
+          <option [value]="0">{{ 'Select the new profile' }}</option>
+          @for (profile of profiles; track profile) {
+            <option [value]="profile.id">{{ profile.name }}</option>
+          }
+        </select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ 'Cancel' }}</button>
+        <button type="button" class="btn btn-danger" [disabled]="selectedProfile <= 0" (click)="assignProfile(selectedProfile)">{{ 'Assign' }}</button>
+      </div>
+    </div>
+  </div>
+</div>

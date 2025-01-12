@@ -1,0 +1,54 @@
+<div class="container mt-5">
+  <h2 class="mb-4">Users List</h2>
+  <button type="button" class="btn btn-primary mb-3" (click)="goToDashboard()">Go to Dashboard</button>
+  <table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Password</th>
+      <th>Profile</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+      @for (user of users; track user) {
+        <tr>
+          <td>{{ user.id }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.password }}</td>
+          <td>{{ user.profile ? user.profile.name : '-' }}</td>
+          <td>
+            <button class="btn btn-primary btn-sm" (click)="edit(user.id)">Update</button>&nbsp;
+            <button class="btn btn-secondary btn-sm" (click)="assign(user.id, user.profile ? user.profile.id : 0)">Profile</button>&nbsp;
+            <button class="btn btn-danger btn-sm" (click)="remove(user.id)">Remove</button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
+
+<div class="container mt-4">
+  <button class="btn btn-success mb-3" (click)="new()">Create New User</button>&nbsp;
+  <button class="btn btn-secondary mb-3" (click)="goBack()">Back</button>
+</div>
+
+<!-- Confirmation Modal -->
+<confirmation-modal
+  (deleteConfirmed)="deleteUser()"
+  [title]="'Confirm Deletion'"
+  [content]="'Do you really want to delete this user?'"
+  [yesButtonText]="'Delete'"
+  [noButtonText]="'Cancel'"
+>
+</confirmation-modal>
+
+<!-- User Assign Profile Modal -->
+<user-assign-profile-modal
+  (assignmentConfirmed)="assignProfile()"
+  (profileIdChange)="setProfileId($event)"
+>
+</user-assign-profile-modal>
