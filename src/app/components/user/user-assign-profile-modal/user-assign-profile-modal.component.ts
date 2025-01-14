@@ -2,11 +2,9 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {utils} from '../../../shared/util/utils';
 import {FormsModule} from '@angular/forms';
 import {ProfileService} from '../../../shared/service/profile.service';
-import {User} from '../../../shared/model/user.model';
 import {Profile} from '../../../shared/model/profile.model';
 import {NotificationService} from '../../../shared/service/notification.service';
 import {AuthService} from '../../../shared/service/auth.service';
-import {Constants} from '../../../shared/util/constants';
 
 @Component({
   selector: 'user-assign-profile-modal',

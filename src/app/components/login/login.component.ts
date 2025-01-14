@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {Router} from '@angular/router';
 import {AuthService} from '../../shared/service/auth.service';
-import {User} from '../../shared/model/user.model';
 import {NotificationService} from '../../shared/service/notification.service';
 
 @Component({

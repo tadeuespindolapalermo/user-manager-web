@@ -9,5 +9,4 @@ import {NotificationsComponent} from './shared/components/notifications/notifica
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'user-manager-web';
 }

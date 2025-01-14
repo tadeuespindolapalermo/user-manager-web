@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {FormsModule} from "@angular/forms";
-import {UserService} from '../../../shared/service/user.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {User} from '../../../shared/model/user.model';
 import {ProfileService} from '../../../shared/service/profile.service';

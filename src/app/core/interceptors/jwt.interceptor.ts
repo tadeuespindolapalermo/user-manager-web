@@ -19,6 +19,5 @@ export function jwtInterceptor(req: HttpRequest<unknown>, next: HttpHandlerFn): 
     });
   }
 
-  console.log(req.url);
   return next(req);
 }
