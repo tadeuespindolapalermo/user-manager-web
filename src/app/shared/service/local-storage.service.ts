@@ -5,6 +5,7 @@ import { environment } from '../../../environments/environment';
   providedIn: 'root',
 })
 export class LocalStorageService {
+
   private readonly storage: Storage;
   private storageApiKey = environment.API_STORAGE_KEY;
 
