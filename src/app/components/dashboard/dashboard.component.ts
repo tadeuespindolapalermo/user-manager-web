@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import {RouterLink} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
+import {AuthService} from '../../shared/service/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,4 +12,17 @@ import {RouterLink} from '@angular/router';
 })
 export class DashboardComponent {
 
+  constructor(
+    private authServer: AuthService,
+    private router: Router
+  ) { }
+
+  isUserAdmin() {
+    return this.authServer.isUserAdmin();
+  }
+
+  logout() {
+    this.authServer.logout();
+    this.router.navigate(['/'])
+  }
 }

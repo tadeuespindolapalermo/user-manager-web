@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {catchError, map, Observable, throwError} from 'rxjs';
 import {Profile} from '../model/profile.model';
-import {enviroment} from '../../../environments/enviroment';
+import {environment} from '../../../environments/environment';
 import {ResponseData} from '../model/response-data.model';
 
 @Injectable({
@@ -10,7 +10,7 @@ import {ResponseData} from '../model/response-data.model';
 })
 export class ProfileService {
 
-  private baseUrl = enviroment.baseUrlApi + '/profiles';
+  private baseUrl = environment.baseUrlApi + '/profiles';
 
   constructor(private http: HttpClient) {}
 

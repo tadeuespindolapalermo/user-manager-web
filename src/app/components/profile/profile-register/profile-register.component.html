@@ -13,6 +13,18 @@
       />
     </div><br />
 
+    <div class="form-group">
+      <label for="name">Description</label>
+      <input
+        type="text"
+        class="form-control"
+        id="description"
+        name="description"
+        [(ngModel)]="profile.description"
+        required
+      />
+    </div><br />
+
     <button type="submit" class="btn btn-primary mb-3" [disabled]="!profileForm.form.valid">
       Register
     </button>&nbsp;

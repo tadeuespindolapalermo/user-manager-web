@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {catchError, map, Observable, throwError} from 'rxjs';
 import {User} from '../model/user.model';
-import {enviroment} from '../../../environments/enviroment';
+import {environment} from '../../../environments/environment';
 import {ResponseData} from "../model/response-data.model";
 import {AssignmentProfile} from "../model/assignment-profile.model";
 
@@ -11,7 +11,7 @@ import {AssignmentProfile} from "../model/assignment-profile.model";
 })
 export class UserService {
 
-  private baseUrl = enviroment.baseUrlApi + '/users';
+  private baseUrl = environment.baseUrlApi + '/users';
 
   constructor(private http: HttpClient) {}
 

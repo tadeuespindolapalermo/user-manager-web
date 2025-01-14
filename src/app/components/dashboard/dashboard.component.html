@@ -6,7 +6,7 @@
         <div class="card-body">
           <h5 class="card-title">Manage Users</h5>
           <p class="card-text">Access and manage user information.</p>
-          <a routerLink="/user/list" class="btn btn-primary">Go to Users</a>
+          <button routerLink="/user/list" class="btn btn-primary">Go to Users</button>
         </div>
       </div>
     </div>
@@ -15,9 +15,11 @@
         <div class="card-body">
           <h5 class="card-title">Manage Profiles</h5>
           <p class="card-text">Access and manage user profiles.</p>
-          <a routerLink="/profile/list" class="btn btn-success">Go to Profiles</a>
+          <button [disabled]="!isUserAdmin()" routerLink="/profile/list" class="btn btn-success">Go to Profiles</button>
         </div>
       </div>
     </div>
   </div>
+  <button class="btn btn-secondary" (click)="logout()">Logout</button>
 </div>
+

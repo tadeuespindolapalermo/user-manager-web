@@ -80,7 +80,7 @@ export class ProfileListComponent implements OnInit {
   }
 
   goToDashboard() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/dashboard']);
   }
 
 }

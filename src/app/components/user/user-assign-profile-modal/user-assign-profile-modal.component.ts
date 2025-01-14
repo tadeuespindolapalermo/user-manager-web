@@ -5,6 +5,8 @@ import {ProfileService} from '../../../shared/service/profile.service';
 import {User} from '../../../shared/model/user.model';
 import {Profile} from '../../../shared/model/profile.model';
 import {NotificationService} from '../../../shared/service/notification.service';
+import {AuthService} from '../../../shared/service/auth.service';
+import {Constants} from '../../../shared/util/constants';
 
 @Component({
   selector: 'user-assign-profile-modal',
@@ -24,11 +26,14 @@ export class UserAssignProfileModalComponent implements OnInit {
 
   constructor(
     private profileService: ProfileService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private authServer: AuthService
   ) { }
 
   ngOnInit() {
-    this.loadProfiles();
+    if (this.authServer.isUserAdmin()) {
+      this.loadProfiles();
+    }
   }
 
   assignProfile(selectedProfile: number): void {
@@ -41,7 +46,7 @@ export class UserAssignProfileModalComponent implements OnInit {
     this.profileService.getAll().subscribe({
       next: (res) => {
         if (res.success) {
-          this.profiles = res.data as User[];
+          this.profiles = res.data as Profile[];
         }
       },
       error: (err) => {

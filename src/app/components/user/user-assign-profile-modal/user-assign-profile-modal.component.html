@@ -9,7 +9,7 @@
         <select id="profileSelect" class="form-select" [(ngModel)]="selectedProfile">
           <option [value]="0">{{ 'Select the new profile' }}</option>
           @for (profile of profiles; track profile) {
-            <option [value]="profile.id">{{ profile.name }}</option>
+            <option [value]="profile.id">{{ profile.description }}</option>
           }
         </select>
       </div>

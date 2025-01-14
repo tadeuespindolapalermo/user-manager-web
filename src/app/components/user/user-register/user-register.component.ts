@@ -59,6 +59,7 @@ export class UserRegisterComponent implements OnInit {
       next: (res) => {
         if (res.success) {
           this.user = res.data as User[];
+          this.user.password = '***';
         }
       },
       error: (err) => {

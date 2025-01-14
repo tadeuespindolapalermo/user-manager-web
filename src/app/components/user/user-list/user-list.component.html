@@ -7,7 +7,6 @@
       <th>ID</th>
       <th>Name</th>
       <th>Email</th>
-      <th>Password</th>
       <th>Profile</th>
       <th>Actions</th>
     </tr>
@@ -18,12 +17,11 @@
           <td>{{ user.id }}</td>
           <td>{{ user.name }}</td>
           <td>{{ user.email }}</td>
-          <td>{{ user.password }}</td>
-          <td>{{ user.profile ? user.profile.name : '-' }}</td>
+          <td>{{ user.profile ? user.profile.description : '-' }}</td>
           <td>
             <button class="btn btn-primary btn-sm" (click)="edit(user.id)">Update</button>&nbsp;
-            <button class="btn btn-secondary btn-sm" (click)="assign(user.id, user.profile ? user.profile.id : 0)">Profile</button>&nbsp;
-            <button class="btn btn-danger btn-sm" (click)="remove(user.id)">Remove</button>
+            <button class="btn btn-secondary btn-sm" (click)="assign(user.id, user.profile ? user.profile.id : 0)" [disabled]="!isUserAdmin()">Profile</button>&nbsp;
+            <button class="btn btn-danger btn-sm" (click)="remove(user.id)" [disabled]="!isUserAdmin()">Remove</button>
           </td>
         </tr>
       }
@@ -32,7 +30,7 @@
 </div>
 
 <div class="container mt-4">
-  <button class="btn btn-success mb-3" (click)="new()">Create New User</button>&nbsp;
+  <button class="btn btn-success mb-3" [disabled]="!isUserAdmin()" (click)="new()">Create New User</button>&nbsp;
   <button class="btn btn-secondary mb-3" (click)="goBack()">Back</button>
 </div>
 

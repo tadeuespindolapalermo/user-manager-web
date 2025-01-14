@@ -8,6 +8,7 @@ import {AssignmentProfile} from '../../../shared/model/assignment-profile.model'
 import {FormsModule} from '@angular/forms';
 import {NotificationService} from '../../../shared/service/notification.service';
 import {Location} from '@angular/common';
+import {AuthService} from '../../../shared/service/auth.service';
 
 @Component({
   selector: 'app-user-list',
@@ -29,11 +30,16 @@ export class UserListComponent implements OnInit {
     private userService: UserService,
     private router: Router,
     private notificationService: NotificationService,
-    private location: Location
+    private location: Location,
+    private authServer: AuthService
   ) {}
 
   ngOnInit(): void {
     this.loadUsers();
+  }
+
+  isUserAdmin() {
+    return this.authServer.isUserAdmin();
   }
 
   setProfileId(profileId: number) {
@@ -120,7 +126,7 @@ export class UserListComponent implements OnInit {
   }
 
   goToDashboard() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/dashboard']);
   }
 
 }
