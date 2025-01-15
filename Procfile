@@ -1,1 +1,1 @@
-web: serve -s dist/user-manager-web
+web: node server.js
