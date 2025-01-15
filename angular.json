@@ -13,6 +13,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "prerender": {
+              "routesFile": ""
+            },
             "outputPath": "dist/user-manager-web",
             "index": "src/index.html",
             "browser": "src/main.ts",
